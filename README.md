@@ -5,11 +5,11 @@
 n_digits: 10, 	 n_samples 1797, 	 n_features 64  
 __________________________________________________________________________________
 init	  	          time    	homo	    compl	    NMI  
-kmeans            	0.42s	      0	      0.650   	0.626
-AffinityPropagation	13.06s	    0	      0.460   	0.655
-MeanShift	          13.80s    	0	      0.281   	0.063  
-SpectralClustering	952.22s	    0	      0.271   	0.012  
-AgglomerativeClustering	0.37s 	0     	0.836    	0.797  
+kmeans            	0.48s   	0.602	    0.650	    0.626    
+AffinityPropagation	14.37s	  0.932   	0.460	    0.655  
+MeanShift	          18.34s  	0.014	    0.281	    0.063  
+SpectralClustering	987.75s 	0.001   	0.271	    0.012  
+AgglomerativeClustering	0.62s	0.758	    0.836   	0.797  
 DBSCAN   	          0.76s     	0	      1.000   	0.375  
 GaussianMixture     0.11s     	0     	1.000   	0.375  
 
