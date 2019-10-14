@@ -1,6 +1,7 @@
 ## 文件说明
-handwritten_digits_data.py 与 text_documents.py两个文件是官网上的两个数据集示例。  
-test_handwritten_digits_data.py 与 test_text_documents.py 文件是根据示例进行修改。  
+handwritten_digits_data.py 与 text_documents.py两个文件是官网上的两个数据集sklearn.datasets.load_di
+gits和sklearn.datasets.fetch_20newsgroups的示例。  
+test_handwritten_digits_data.py 与 test_text_documents.py 文件是根据示例进行的修改。  
 
 ## 运行结果  
 ### test_handwritten_digits_data.py  
@@ -20,9 +21,9 @@ n_digits: 10, 	 n_samples 1797, 	 n_features 64
 ### test_text_documents.py  
 
 |init			             |time	 | homo	|compl	|NMI  |
-----------------------|--------|------|-------|-----|
-|kmeans   		         |3.666s |0.374	|0.567|	0.460 | 
-|AffinityPropagation	|55.952s	|0.517	|0.601	|0.557|  
+-----------------------|-------|------|-------|-----|
+|kmeans   		         |3.666s |0.374	|0.567  |0.460| 
+|AffinityPropagation	|55.952s	|0.517|0.601	|0.557|  
 |MeanShift		        	|2.651s	|0.082|	0.263	|0.147|  
 |SpectralClustering		|45.504s	|0.002|	0.168	|0.016|
 |AgglomerativeClustering	|2192.298s	|0.000	|1.000|0.000|
@@ -36,12 +37,12 @@ n_digits: 10, 	 n_samples 1797, 	 n_features 64
 GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering  
 - 数据集text_documents  
 MeanShift< K-Means< DBSCAN< SpectralClustering< AffinityPropagation< GaussianMixture< AgglomerativeClustering  
-2. Homogeneity评价  
+2. homogeneity_score  
 - 数据集handwritten_digits_data  
 GaussianMixture=DBSCAN< SpectralClustering< MeanShift< kmeans< AgglomerativeClustering< AffinityPropagation  
 - 数据集text_documents  
 AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< K-Means< AffinityPropagation< DBSCAN  
-3. completeness评价  
+3. completeness score  
 - 数据集handwritten_digits_data  
 SpectralClustering< MeanShift< AffinityPropagation< kmeans< AgglomerativeClustering< DBSCAN=GaussianMixture  
 - 数据集text_documents  
