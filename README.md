@@ -1,7 +1,5 @@
-# Homework_wx
-## 运行结果  
-
-### test_handwritten_digits_data.py  
+# 运行结果  
+## test_handwritten_digits_data.py  
 n_digits: 10, 	 n_samples 1797, 	 n_features 64  
 _________________________________________________________________
 init			             time	  homo	compl	NMI  
@@ -14,8 +12,7 @@ DBSCAN   	          	0.53s	  0.000	1.000 0.375
 GaussianMixture		    0.11s 	0.000	1.000 0.375  
 
 ----  
-
-### test_text_documents.py  
+## test_text_documents.py  
 K-Means done in 7.730s  
 Homogeneity: 0.485   
 Completeness: 0.571  
@@ -25,20 +22,23 @@ AffinityPropagation done in 73.955s
 Homogeneity: 0.517  
 Completeness: 0.601  
 NMI: 0.557   
-
-
-
-
-
-
-## 评价
-### 时间评价
-#### 数据集handwritten_digits_data
+# 评价
+## 时间评价
+### 数据集handwritten_digits_data
 GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering
-#### 数据集text_documents  
+### 数据集text_documents  
 
-### Homogeneity评价
+## Homogeneity评价
+### 数据集handwritten_digits_data  
+GaussianMixture=DBSCAN< SpectralClustering< MeanShift< kmeans< AgglomerativeClustering< AffinityPropagation  
+### 数据集text_documents  
 
-### completeness评价
+## completeness评价
+### 数据集handwritten_digits_data  
+SpectralClustering< MeanShift< AffinityPropagation< kmeans< AgglomerativeClustering< DBSCAN=GaussianMixture  
+### 数据集text_documents  
 
-### NMI评价
+## NMI评价
+### 数据集handwritten_digits_data  
+SpectralClustering< MeanShift< DBSCAN= GaussianMixture< kmeans< AffinityPropagation< AgglomerativeClustering
+### 数据集text_documents  
