@@ -31,23 +31,24 @@ n_digits: 10, 	 n_samples 1797, 	 n_features 64
 
 
 ## 评价标准
-### 聚集时间评价
-#### 数据集handwritten_digits_data
-GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering
-#### 数据集text_documents  
-MeanShift< K-Means< DBSCAN< SpectralClustering< AffinityPropagation< GaussianMixture< AgglomerativeClustering
-### Homogeneity评价
-#### 数据集handwritten_digits_data  
+1. 聚集时间评价
+- 数据集handwritten_digits_data  
+GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering  
+- 数据集text_documents  
+MeanShift< K-Means< DBSCAN< SpectralClustering< AffinityPropagation< GaussianMixture< AgglomerativeClustering  
+2. Homogeneity评价  
+- 数据集handwritten_digits_data  
 GaussianMixture=DBSCAN< SpectralClustering< MeanShift< kmeans< AgglomerativeClustering< AffinityPropagation  
-#### 数据集text_documents  
-AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< K-Means< AffinityPropagation< DBSCAN
-### completeness评价
-#### 数据集handwritten_digits_data  
+- 数据集text_documents  
+AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< K-Means< AffinityPropagation< DBSCAN  
+3. completeness评价  
+- 数据集handwritten_digits_data  
 SpectralClustering< MeanShift< AffinityPropagation< kmeans< AgglomerativeClustering< DBSCAN=GaussianMixture  
-#### 数据集text_documents  
-SpectralClustering< DBSCAN< MeanShift<  K-Means< AffinityPropagation< GaussianMixture=AgglomerativeClustering
-### NMI评价
-#### 数据集handwritten_digits_data  
-SpectralClustering< MeanShift< DBSCAN= GaussianMixture< kmeans< AffinityPropagation< AgglomerativeClustering
-#### 数据集text_documents  
-AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< DBSCAN< K-Means< AffinityPropagation
+- 数据集text_documents  
+SpectralClustering< DBSCAN< MeanShift<  K-Means< AffinityPropagation< GaussianMixture=AgglomerativeClustering  
+4. NMI评价  
+- 数据集handwritten_digits_data  
+SpectralClustering< MeanShift< DBSCAN= GaussianMixture< kmeans< AffinityPropagation< AgglomerativeClustering  
+- 数据集text_documents  
+AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< DBSCAN< K-Means< AffinityPropagation  
+
