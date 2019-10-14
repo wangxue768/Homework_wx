@@ -33,6 +33,9 @@ NMI: 0.557
 
 ## 评价
 ### 时间评价
+#### 数据集handwritten_digits_data
+GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering
+#### 数据集text_documents  
 
 ### Homogeneity评价
 
