@@ -1,3 +1,7 @@
+# 文件说明
+handwritten_digits_data.py 与 text_documents.py两个文件是官网上的两个数据集示例。  
+test_handwritten_digits_data.py 与 test_text_documents.py 文件是根据示例进行修改。  
+
 # 运行结果  
 ## test_handwritten_digits_data.py  
 n_digits: 10, 	 n_samples 1797, 	 n_features 64  
@@ -48,8 +52,8 @@ Homogeneity: 0.000
 Completeness: 1.000  
 NMI: 0.000  
 
-# 评价
-## 时间评价
+# 评价标准
+## 聚集时间评价
 ### 数据集handwritten_digits_data
 GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering
 ### 数据集text_documents  
@@ -58,13 +62,14 @@ MeanShift< K-Means< DBSCAN< SpectralClustering< AffinityPropagation< GaussianMix
 ### 数据集handwritten_digits_data  
 GaussianMixture=DBSCAN< SpectralClustering< MeanShift< kmeans< AgglomerativeClustering< AffinityPropagation  
 ### 数据集text_documents  
-
+AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< K-Means< AffinityPropagation< DBSCAN
 ## completeness评价
 ### 数据集handwritten_digits_data  
 SpectralClustering< MeanShift< AffinityPropagation< kmeans< AgglomerativeClustering< DBSCAN=GaussianMixture  
 ### 数据集text_documents  
-
+SpectralClustering< DBSCAN< MeanShift<  K-Means< AffinityPropagation< GaussianMixture=AgglomerativeClustering
 ## NMI评价
 ### 数据集handwritten_digits_data  
 SpectralClustering< MeanShift< DBSCAN= GaussianMixture< kmeans< AffinityPropagation< AgglomerativeClustering
 ### 数据集text_documents  
+AgglomerativeClustering=GaussianMixture< SpectralClustering< MeanShift< DBSCAN< K-Means< AffinityPropagation
