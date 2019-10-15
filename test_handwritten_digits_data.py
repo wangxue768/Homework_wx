@@ -1,3 +1,12 @@
+print(__doc__)
+
+from time import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn import metrics
+from sklearn.cluster import AffinityPropagation, KMeans, MeanShift
+from sklearn.cluster import SpectralClustering
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
 from sklearn.mixture import GaussianMixture
@@ -20,17 +29,20 @@ print("n_digits: %d, \t n_samples %d, \t n_features %d"
       % (n_digits, n_samples, n_features))
 
 print(82 * '_')
-print('init\t\ttime\thomo\tcompl\tNMI')
+print('|init\t\t\t|time|\thomo|\tcompl|\tNMI|\tlabels_true|\tlabel_pred|')
+print('|------------|---|------|-------|-----|-------------|------------|')
 
 
 def bench_k_means(estimator, name, data):
     t0 = time()
     estimator.fit(data)
-    print('%-9s\t%.2fs\t%.3f\t%.3f\t%.3f'
+    print('|%-9s\t|%.2fs|\t%.3f|\t%.3f|\t%.3f|\t%s|\t%s|'
           % (name, (time() - t0),
              metrics.homogeneity_score(labels, estimator.labels_),
              metrics.completeness_score(labels, estimator.labels_),
-             metrics.normalized_mutual_info_score(labels, estimator.labels_)
+             metrics.normalized_mutual_info_score(labels, estimator.labels_),
+             labels,
+             estimator.labels_
              # metrics.v_measure_score(labels, estimator.labels_),
              # metrics.adjusted_rand_score(labels, estimator.labels_),
              # metrics.adjusted_mutual_info_score(labels,  estimator.labels_,
@@ -55,11 +67,13 @@ bench_k_means(DBSCAN(),
 t0 = time()
 gm = GaussianMixture()
 gm.fit(data)
-print('%-9s\t%.2fs\t%.3f\t%.3f\t%.3f'
+print('%-9s\t%.2fs\t%.3f\t%.3f\t%.3f\t%s\t%s'
       % ('GaussianMixture', (time() - t0),
          metrics.homogeneity_score(labels, gm.predict(data)),
          metrics.completeness_score(labels, gm.predict(data)),
-         metrics.normalized_mutual_info_score(labels, gm.predict(data))
+         metrics.normalized_mutual_info_score(labels, gm.predict(data)),
+         labels,
+         gm.predict(data)
          ))
 # in this case the seeding of the centers is deterministic, hence we run the
 # kmeans algorithm only once with n_init=1

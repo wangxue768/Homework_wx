@@ -2,12 +2,12 @@
 #         Lars Buitinck
 # License: BSD 3 clause
 from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import TruncatedSVD
+from sklearn.decomposition import TruncatedSVD, PCA
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import Normalizer
+from sklearn.preprocessing import Normalizer, data
 from sklearn import metrics
 
 from sklearn.cluster import KMeans, AgglomerativeClustering,AffinityPropagation,DBSCAN,MeanShift,SpectralClustering
@@ -19,6 +19,8 @@ import sys
 from time import time
 
 import numpy as np
+
+import matplotlib.pyplot as plt
 
 
 # Display progress logs on stdout
@@ -135,7 +137,7 @@ if opts.n_components:
 # #############################################################################
 # Do the actual clusterin
 km = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1,
-                verbose=opts.verbose)
+            verbose=opts.verbose)
 ap = AffinityPropagation()
 ac = AgglomerativeClustering(n_clusters=4)
 db = DBSCAN()
@@ -144,75 +146,76 @@ sc = SpectralClustering(n_clusters=4)
 gm = GaussianMixture()
 
 
-
 t0 = time()
 km.fit(X.toarray())
-print("K-Means done in %0.3fs" % (time() - t0))
-print()
+print("KMeans done in %0.3fs" % (time() - t0))
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, km.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, km.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, km.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % km.labels_)
 print()
 
 
 t0 = time()
 ac.fit(X.toarray())
 print("AffinityPropagation done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, ac.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, ac.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, ac.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % ac.labels_)
 print()
 
 
 t0 = time()
 ms.fit(X.toarray())
 print("AgglomerativeClustering done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, ms.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, ms.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, ms.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % ms.labels_)
 print()
-
 
 t0 = time()
 ap.fit(X.toarray())
 print("DBSCAN done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, ap.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, ap.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, ap.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % ap.labels_)
 print()
-
 
 t0 = time()
 sc.fit(X.toarray())
 print("MeanShift done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, sc.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, sc.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, sc.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % sc.labels_)
 print()
-
-
 
 t0 = time()
 db.fit(X.toarray())
 print("SpectralClustering done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, db.labels_))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, db.labels_))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, db.labels_))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % db.labels_)
 print()
-
 
 t0 = time()
-gm.fit(X)
+gm.fit(X.toarray)
 print("GaussianMixture done in %0.3fs" % (time() - t0))
-print()
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, gm.predict(X.toarray())))
 print("Completeness: %0.3f" % metrics.completeness_score(labels, gm.predict(X.toarray())))
 print("NMI: %0.3f" % metrics.normalized_mutual_info_score(labels, gm.predict(X.toarray())))
+print("label_ture: %s" % labels)
+print("label_pred: %s" % gm.predict(data))
 print()
 
 if not opts.use_hashing:
@@ -230,3 +233,6 @@ if not opts.use_hashing:
         for ind in order_centroids[i, :10]:
             print(' %s' % terms[ind], end='')
         print()
+
+
+
