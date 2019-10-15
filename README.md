@@ -1,4 +1,6 @@
-## 文件说明
+# Data Mining 实验报告
+学号：201944768  姓名：王雪
+## 项目文件说明
 - handwritten_digits_data.py 与 text_documents.py两个文件是官网上的两个数据集sklearn.datasets.load_di
 gits和sklearn.datasets.fetch_20newsgroups的示例。  
 - test_handwritten_digits_data.py 与 test_text_documents.py 文件是根据示例进行修改后的文件，每个文件包含7个算法，分别是kmeans，AffinityPropagation，MeanShift，SpectralClustering，AgglomerativeClustering，DBSCAN，GaussianMixture。  
