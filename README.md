@@ -5,6 +5,8 @@ gits和sklearn.datasets.fetch_20newsgroups的示例。
 
 ## 运行结果  
 ### test_handwritten_digits_data.py  
+![](https://github.com/wangxue768/Homework_wx/blob/master/kmeans_digits_dataset.png)
+
 n_digits: 10, 	 n_samples 1797, 	 n_features 64  
 
 |init			             |time	 | homo	|compl	|NMI  |
@@ -30,8 +32,7 @@ n_digits: 10, 	 n_samples 1797, 	 n_features 64
 |DBSCAN   	          	|21.226s	 | 0.885|	0.191 |0.411 
 |GaussianMixture		    |90.275s 	|0.000	|1.000 |0.000 | 
 
-
-## 评价标准
+## 评价
 1. 聚集时间评价
 - 数据集handwritten_digits_data  
 GaussianMixture< kmeans< AgglomerativeClustering< DBSCAN< AffinityPropagation< MeanShift< SpectralClustering  
