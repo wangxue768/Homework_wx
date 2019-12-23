@@ -5,21 +5,27 @@
 gits和sklearn.datasets.fetch_20newsgroups的示例。  
 - test_handwritten_digits_data.py 与 test_text_documents.py 文件是根据示例进行修改后的文件，每个文件包含7个算法，分别是kmeans，AffinityPropagation，MeanShift，SpectralClustering，AgglomerativeClustering，DBSCAN，GaussianMixture。  
 ## 算法介绍
-1.K-Means
-K-Means是典型的聚类算法，K-Means算法中的k表示的是聚类为k个簇，means代表取每一个聚类中数据值的均值作为该簇的中心，或者称为质心，即用每一个的类的质心对该簇进行描述。
-2.Affinity Propagation
-    Affinity Propagation聚类算法是基于数据点间的"信息传递"的一种聚类算法。与k-均值算法或k中心点算法不同，AP算法不需要在运行算法之前确定聚类的个数。AP算法寻找的"examplars"即聚类中心点是数据集合中实际存在的点，作为每类的代表。
-3.Mean Shift
-Mean Shift（均值漂移）是基于密度的非参数聚类算法，其算法思想是假设不同簇类的数据集符合不同的概率密度分布，找到任一样本点密度增大的最快方向（最快方向的含义就是Mean Shift），样本密度高的区域对应于该分布的最大值，这些样本点最终会在局部密度最大值收敛，且收敛到相同局部最大值的点被认为是同一簇类的成员。
-4.Spectral Clustering
-Spectral Clustering（谱聚类）是从图论中演化出来的算法，后来在聚类中得到了广泛的应用。它的主要思想是把所有的数据看做空间中的点，这些点之间可以用边连接起来。距离较远的两个点之间的边权重值较低，而距离较近的两个点之间的边权重值较高，通过对所有数据点组成的图进行切图，让切图后不同的子图间边权重和尽可能的低，而子图内的边权重和尽可能的高，从而达到聚类的目的。
+1.K-Means  
+K-Means是典型的聚类算法，K-Means算法中的k表示的是聚类为k个簇，means代表取每一个聚类中数据值的均值作为该簇的中心，或者称为质心，即用每一个的类的质心对该簇进行描述。  
 
-5.Agglomerative Clustering
-Agglomerative Clutsering 是一种自底而上的层次聚类方法，它能够根据指定的相似度或距离定义计算出类之间的距离。
-6.DBSCAN
-DBSCAN(Density-Based Spatial Clustering of Applications with Noise)是一个比较有代表性的基于密度的聚类算法。与划分和层次聚类方法不同，它将簇定义为密度相连的点的最大集合，能够把具有足够高密度的区域划分为簇，并可在噪声的空间数据库中发现任意形状的聚类。
-7.Gaussian Mixture
-Gaussian Mixture（高斯混合模型）是对高斯模型进行简单的扩展，GMM使用多个高斯分布的组合来刻画数据分布。
+2.Affinity Propagation  
+Affinity Propagation聚类算法是基于数据点间的"信息传递"的一种聚类算法。与k-均值算法或k中心点算法不同，AP算法不需要在运行算法之前确定聚类的个数。AP算法寻找的"examplars"即聚类中心点是数据集合中实际存在的点，作为每类的代表。  
+
+3.Mean Shift  
+Mean Shift（均值漂移）是基于密度的非参数聚类算法，其算法思想是假设不同簇类的数据集符合不同的概率密度分布，找到任一样本点密度增大的最快方向（最快方向的含义就是Mean Shift），样本密度高的区域对应于该分布的最大值，这些样本点最终会在局部密度最大值收敛，且收敛到相同局部最大值的点被认为是同一簇类的成员。  
+
+4.Spectral Clustering  
+Spectral Clustering（谱聚类）是从图论中演化出来的算法，后来在聚类中得到了广泛的应用。它的主要思想是把所有的数据看做空间中的点，这些点之间可以用边连接起来。距离较远的两个点之间的边权重值较低，而距离较近的两个点之间的边权重值较高，通过对所有数据点组成的图进行切图，让切图后不同的子图间边权重和尽可能的低，而子图内的边权重和尽可能的高，从而达到聚类的目的。  
+
+5.Agglomerative Clustering  
+Agglomerative Clutsering 是一种自底而上的层次聚类方法，它能够根据指定的相似度或距离定义计算出类之间的距离。  
+
+6.DBSCAN  
+DBSCAN(Density-Based Spatial Clustering of Applications with Noise)是一个比较有代表性的基于密度的聚类算法。与划分和层次聚类方法不同，它将簇定义为密度相连的点的最大集合，能够把具有足够高密度的区域划分为簇，并可在噪声的空间数据库中发现任意形状的聚类。  
+
+7.Gaussian Mixture  
+Gaussian Mixture（高斯混合模型）是对高斯模型进行简单的扩展，GMM使用多个高斯分布的组合来刻画数据分布。  
+
 ## 运行结果  
 ### test_handwritten_digits_data.py  
 ![](https://github.com/wangxue768/Homework_wx/blob/master/kmeans_digits_dataset.png)
