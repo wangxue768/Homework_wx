@@ -28,7 +28,7 @@ Gaussian Mixture（高斯混合模型）是对高斯模型进行简单的扩展�
 
 ## 运行结果  
 ### test_handwritten_digits_data.py  
-![](https://github.com/wangxue768/Homework_wx/Homework/kmeans_digits_dataset.png)
+![](https://github.com/wangxue768/Homework_wx/blob/master/Homework/kmeans_digits_dataset.png)
 
 n_digits: 10, 	 n_samples 1797, 	 n_features 64  
 
